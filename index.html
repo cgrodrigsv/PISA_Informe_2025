@@ -139,6 +139,9 @@
     html:not(.dark) .recharts-text { fill: #19406B !important; }
     html:not(.dark) .recharts-cartesian-grid line, html:not(.dark) .recharts-polar-grid line, html:not(.dark) .recharts-polar-grid polygon { stroke: #C5D0DE !important; }
     
+    /* Smooth Scroll */
+    html { scroll-behavior: smooth; }
+    
     /* ECharts Text Colors (using global class hack) */
     html:not(.dark) .echarts-light-text text { fill: #19406B !important; }
     .text-gradient-emerald {
@@ -689,12 +692,25 @@
                 </button>
               </div>
             </div>
+            
+            {/* Horizontal Navigation Menu */}
+            <nav className="w-full border-t border-slate-800/50 overflow-x-auto hide-scrollbar">
+              <div className="max-w-7xl mx-auto px-4 py-2 flex gap-8 text-xs font-bold text-slate-400">
+                <a href="#hero" className="hover:text-[#0061D2] whitespace-nowrap transition-colors">Resumen Global</a>
+                <a href="#mapa" className="hover:text-[#0061D2] whitespace-nowrap transition-colors">Mapa de Rendimiento</a>
+                <a href="#brechas" className="hover:text-[#0061D2] whitespace-nowrap transition-colors">Brechas y Equidad</a>
+                <a href="#tendencias" className="hover:text-[#0061D2] whitespace-nowrap transition-colors">Análisis de Tendencias</a>
+                <a href="#equidad" className="hover:text-[#0061D2] whitespace-nowrap transition-colors">Impacto Socioeconómico</a>
+                <a href="#habilidades" className="hover:text-[#0061D2] whitespace-nowrap transition-colors">Habilidades del Futuro</a>
+                <a href="#explorador" className="hover:text-[#0061D2] whitespace-nowrap transition-colors">Directorio de Países</a>
+              </div>
+            </nav>
           </header>
 
           <main className="flex-1 max-w-7xl mx-auto px-4 py-8 space-y-12 w-full">
             
             {/* HERO STATS */}
-            <section>
+            <section id="hero" className="scroll-mt-32">
               <div className="text-center max-w-3xl mx-auto mb-8">
                 <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-white">
                   Promedios Globales y <span className="text-gradient-sky">Cifras de Impacto</span>
@@ -747,12 +763,12 @@
             </section>
 
             {/* MAPA GLOBAL (CHOROPLETH) */}
-            <section className="pt-8 border-t border-slate-800">
+            <section id="mapa" className="pt-8 border-t border-slate-800 scroll-mt-32">
               <GlobalMap data={COUNTRY_LIST} selectedDomain={sortBy} onCountrySelect={setSelectedCountry} />
             </section>
 
             {/* BRECHA DE COMPETENCIAS */}
-            <section className="pt-8 border-t border-slate-800">
+            <section id="brechas" className="pt-8 border-t border-slate-800 scroll-mt-32">
               <div className="mb-6">
                 <span className="text-xs font-bold text-rose-400 uppercase bg-rose-500/10 px-2.5 py-1 rounded">Distribución de Niveles</span>
                 <h3 className="text-2xl font-extrabold text-white mt-2">Brecha de Competencias: <span className="text-gradient-rose">Top Performers vs. Low Achievers</span></h3>
@@ -786,7 +802,7 @@
             </section>
 
             {/* TOP 5 RISING VS DECLINING */}
-            <section className="pt-8 border-t border-slate-800">
+            <section id="top5" className="pt-8 border-t border-slate-800 scroll-mt-32">
               <div className="mb-6">
                 <h3 className="text-2xl font-extrabold text-white">Top 5 Sistemas Educativos en <span className="text-gradient-emerald">Ascenso</span> vs. En <span className="text-gradient-rose">Declive</span></h3>
                 <p className="text-xs text-slate-400 mt-1">Comparativa de puntajes y trayectoria a 10 años.</p>
@@ -830,17 +846,17 @@
             </section>
 
             {/* TENDENCIAS HISTORICAS */}
-            <section className="pt-8 border-t border-[#19406B]">
+            <section id="tendencias" className="pt-8 border-t border-[#19406B] scroll-mt-32">
               <HistoricalTrends />
             </section>
 
             {/* IMPACTO SOCIOECONOMICO */}
-            <section className="pt-8 border-t border-[#19406B]">
+            <section id="equidad" className="pt-8 border-t border-[#19406B] scroll-mt-32">
               <SocioeconomicImpact />
             </section>
 
             {/* HABILIDADES DEL FUTURO */}
-            <section className="pt-8 border-t border-[#19406B]">
+            <section id="habilidades" className="pt-8 border-t border-[#19406B] scroll-mt-32">
               <div className="mb-6">
                 <h3 className="text-2xl font-extrabold text-white">Habilidades del Futuro: <span className="text-gradient-sky">Competencias Cognitivas y Digitales</span></h3>
                 <p className="text-xs text-slate-400 mt-1">Desglose de rendimiento en pensamiento computacional, indagación científica y evaluación de IA.</p>
@@ -861,7 +877,7 @@
             </section>
 
             {/* EXPLORADOR DE PAISES */}
-            <section className="pt-8 border-t border-slate-800">
+            <section id="explorador" className="pt-8 border-t border-slate-800 scroll-mt-32">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
                 <div>
                   <h3 className="text-2xl font-extrabold text-white">Explorador de <span className="text-gradient-sky">Sistemas Educativos</span></h3>
